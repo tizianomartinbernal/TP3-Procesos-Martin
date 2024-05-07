@@ -154,6 +154,11 @@ int main(int argc, char **argv)
 			perror("waitpid");
 			exit(EXIT_FAILURE);
 		}
+		// verifico si algun hijo termino por señal, en tal caso termino el padre
+		if (WIFSIGNALED(status)){
+			printf("Proceso hijo %i terminado por señal %i\n", i, WTERMSIG(status));
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	int num;

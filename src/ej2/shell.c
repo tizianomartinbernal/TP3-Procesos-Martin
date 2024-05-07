@@ -191,6 +191,8 @@ int main() {
                 perror("waitpid");
                 exit(EXIT_FAILURE);
                 }
+            // no hago nada si alguno de los procesos hijo fue interrumpido por una señal
+            
             }
 
         command_count = 0;
